@@ -5,8 +5,17 @@
 ## User settings
 xcuserdata/
 
-.build/
+## Build generated
+build/
+DerivedData
 
 ## Cocoa Pods
 Pods/
 *.xcworkspace
+Podfile.lock
+
+## Other
+*.xcuserstate
+
+## OS X System files
+.DS_Store

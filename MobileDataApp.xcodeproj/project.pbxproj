@@ -18,6 +18,11 @@
 		AA12A5C124E93EA9007CD276 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12A5C024E93EA9007CD276 /* TestHelper.swift */; };
 		AA12A5C324E93EE1007CD276 /* DataStoreSearchResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12A5C224E93EE1007CD276 /* DataStoreSearchResponseTests.swift */; };
 		AA12A5C524E940FB007CD276 /* data-store-search.json in Resources */ = {isa = PBXBuildFile; fileRef = AA12A5C424E940FB007CD276 /* data-store-search.json */; };
+		AA12A5CA24E94263007CD276 /* MobileDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12A5C924E94263007CD276 /* MobileDataService.swift */; };
+		AA12A5CC24E94290007CD276 /* MobileDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12A5CB24E94290007CD276 /* MobileDataViewModel.swift */; };
+		AA12A5D024E9445C007CD276 /* MobileDataViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12A5CF24E9445C007CD276 /* MobileDataViewModelTests.swift */; };
+		AA12A5D424E94538007CD276 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12A5D324E94538007CD276 /* GeneratedMocks.swift */; };
+		AA12A5D724E946A9007CD276 /* MobileDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12A5D624E946A8007CD276 /* MobileDataError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		AA12A5C024E93EA9007CD276 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		AA12A5C224E93EE1007CD276 /* DataStoreSearchResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreSearchResponseTests.swift; sourceTree = "<group>"; };
 		AA12A5C424E940FB007CD276 /* data-store-search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "data-store-search.json"; sourceTree = "<group>"; };
+		AA12A5C924E94263007CD276 /* MobileDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataService.swift; sourceTree = "<group>"; };
+		AA12A5CB24E94290007CD276 /* MobileDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataViewModel.swift; sourceTree = "<group>"; };
+		AA12A5CF24E9445C007CD276 /* MobileDataViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataViewModelTests.swift; sourceTree = "<group>"; };
+		AA12A5D324E94538007CD276 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		AA12A5D624E946A8007CD276 /* MobileDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDataError.swift; sourceTree = "<group>"; };
 		EC4C1F1A85A6C5223216B475 /* Pods_MobileDataApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileDataApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +116,9 @@
 		AA12A59324E93743007CD276 /* MobileDataApp */ = {
 			isa = PBXGroup;
 			children = (
+				AA12A5D524E94696007CD276 /* Network */,
+				AA12A5C724E94230007CD276 /* Features */,
+				AA12A5C624E94228007CD276 /* Services */,
 				AA12A5B624E93D62007CD276 /* Models */,
 				AA12A59424E93743007CD276 /* AppDelegate.swift */,
 				AA12A59824E93743007CD276 /* ViewController.swift */,
@@ -119,6 +132,8 @@
 		AA12A5AA24E93745007CD276 /* MobileDataAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				AA12A5D324E94538007CD276 /* GeneratedMocks.swift */,
+				AA12A5CD24E94439007CD276 /* Features */,
 				AA12A5BF24E93E9A007CD276 /* Utilities */,
 				AA12A5BD24E93E3C007CD276 /* Resources */,
 				AA12A5BC24E93DFA007CD276 /* Models */,
@@ -158,6 +173,54 @@
 				AA12A5C024E93EA9007CD276 /* TestHelper.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AA12A5C624E94228007CD276 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AA12A5C924E94263007CD276 /* MobileDataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AA12A5C724E94230007CD276 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				AA12A5C824E94238007CD276 /* Display Mobile Data */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		AA12A5C824E94238007CD276 /* Display Mobile Data */ = {
+			isa = PBXGroup;
+			children = (
+				AA12A5CB24E94290007CD276 /* MobileDataViewModel.swift */,
+			);
+			path = "Display Mobile Data";
+			sourceTree = "<group>";
+		};
+		AA12A5CD24E94439007CD276 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				AA12A5CE24E94443007CD276 /* Display Mobile Data */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		AA12A5CE24E94443007CD276 /* Display Mobile Data */ = {
+			isa = PBXGroup;
+			children = (
+				AA12A5CF24E9445C007CD276 /* MobileDataViewModelTests.swift */,
+			);
+			path = "Display Mobile Data";
+			sourceTree = "<group>";
+		};
+		AA12A5D524E94696007CD276 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AA12A5D624E946A8007CD276 /* MobileDataError.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		FEDE665667669B092C8CD2D8 /* Frameworks */ = {
@@ -200,6 +263,7 @@
 				AA12A5A424E93745007CD276 /* Frameworks */,
 				AA12A5A524E93745007CD276 /* Resources */,
 				D4140F753B8B9DCDA0CA0B17 /* [CP] Embed Pods Frameworks */,
+				AA12A5D224E944D4007CD276 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -331,6 +395,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MobileDataApp/Pods-MobileDataApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AA12A5D224E944D4007CD276 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Services/MobileDataService.swift\" \\\n\"${INPUT_DIR}/Features/Display Mobile Data/MobileDataViewModel.swift\"\n";
+		};
 		D4140F753B8B9DCDA0CA0B17 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -355,9 +436,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA12A5D724E946A9007CD276 /* MobileDataError.swift in Sources */,
 				AA12A5B824E93D7D007CD276 /* DataStoreSearchResponse.swift in Sources */,
 				AA12A59924E93743007CD276 /* ViewController.swift in Sources */,
+				AA12A5CC24E94290007CD276 /* MobileDataViewModel.swift in Sources */,
 				AA12A59524E93743007CD276 /* AppDelegate.swift in Sources */,
+				AA12A5CA24E94263007CD276 /* MobileDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +451,9 @@
 			files = (
 				AA12A5C124E93EA9007CD276 /* TestHelper.swift in Sources */,
 				AA12A5AC24E93745007CD276 /* MobileDataAppTests.swift in Sources */,
+				AA12A5D024E9445C007CD276 /* MobileDataViewModelTests.swift in Sources */,
 				AA12A5C324E93EE1007CD276 /* DataStoreSearchResponseTests.swift in Sources */,
+				AA12A5D424E94538007CD276 /* GeneratedMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
