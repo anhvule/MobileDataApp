@@ -18,7 +18,7 @@ protocol APIClientProtocol: class {
                      headers: [String : String]?) -> Observable<Data>
 }
 
-class APIClient {
+final class APIClient {
 
     private var endpointUrlString: String = "https://data.gov.sg/"
 

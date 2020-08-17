@@ -17,7 +17,7 @@ protocol MobileDataLocalDataManagerProtocol: class {
     func removeAll()
 }
 
-class MobileDataLocalDataManager: MobileDataLocalDataManagerProtocol {
+final class MobileDataLocalDataManager: MobileDataLocalDataManagerProtocol {
 
     private let yearlyMobileDataRecordsSubject = BehaviorSubject<[YearlyMobileData]?>(value: nil)
     private let databaseName: String

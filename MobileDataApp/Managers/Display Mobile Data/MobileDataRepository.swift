@@ -15,7 +15,7 @@ protocol MobileDataRepositoryProtocol: class {
     func fetchMobileData(resourceId: String) -> Observable<[YearlyMobileData]>
 }
 
-class MobileDataRepository: MobileDataRepositoryProtocol {
+final class MobileDataRepository: MobileDataRepositoryProtocol {
 
     // MARK: Initialization
     init(apiService: MobileDataServiceProtocol,
