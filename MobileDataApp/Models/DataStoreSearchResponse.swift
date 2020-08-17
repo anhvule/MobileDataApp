@@ -71,3 +71,5 @@ struct YearlyMobileData {
     var year: String
     var hasDecreasedQuarterlyVolumes: Bool
 }
+
+extension YearlyMobileData: Equatable { }

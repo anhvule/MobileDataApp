@@ -5,7 +5,8 @@ def import_pods
     pod 'RxSwift', '~> 4.4.0'
     pod 'RxCocoa', '~> 4.4.0'
     pod 'RxAlamofire', '~> 4.4.0'
-    pod 'SDWebImage', '~> 5.0'
+    pod 'RealmSwift', '~> 3.17.0'
+    pod 'RxRealm'
 end
 
 def test_pods
@@ -16,6 +17,7 @@ def test_pods
     pod 'RxSwift', '~> 4.4.0'
     pod 'RxCocoa', '~> 4.4.0'
     pod 'RxAlamofire', '~> 4.4.0'
+    pod 'RxRealm'
 end
 
 

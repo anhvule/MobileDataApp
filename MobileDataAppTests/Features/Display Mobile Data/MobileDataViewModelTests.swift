@@ -15,72 +15,49 @@ import RxSwift
 class MobileDataViewModelTests: XCTestCase {
 
     var sut: MobileDataViewModelProtocol!
-    var mobileDataService: MockMobileDataServiceProtocol!
-    var response: DataStoreSearchResponse!
-    let mockYearlyVolumes = ["0.001", "0.003", "0.007", "0.197", "1.544", "6.229", "11.453", "14.639", "21.528", "28.497", "33.595", "41.253", "47.361", "58.501", "75.360", "20.535"]
+    var mobileDataRepository: MockMobileDataRepositoryProtocol!
 
     override func setUp() {
-        mobileDataService = MockMobileDataServiceProtocol()
-        sut = MobileDataViewModel(mobileDataService: mobileDataService)
+        mobileDataRepository = MockMobileDataRepositoryProtocol()
+        sut = MobileDataViewModel(mobileDataRepository: mobileDataRepository)
     }
 
-    func testFetchMobileData() {
+    func testFetchMobileDataSuccessfully() {
         // Given
         let fetchMobileDataExpectation = expectation(description: #function)
-        setupMockMobileData()
+        let year1 = YearlyMobileData(volumeOfMobileData: 1, year: "1", hasDecreasedQuarterlyVolumes: true)
+        let year2 = YearlyMobileData(volumeOfMobileData: 2, year: "2", hasDecreasedQuarterlyVolumes: false)
+        Cuckoo.stub(mobileDataRepository) { (stub) in
+            when(stub.fetchMobileData(resourceId: any())).then { _ in .just([year1, year2]) }
+        }
 
         // When
         sut.reloadMobileData()
 
         // Then
         let disposable = sut.mobileData.subscribe(onNext: { yearlyMobileData in
-            XCTAssertEqual(yearlyMobileData.count, 16)
-            let year = 2004
-            for (index, data) in yearlyMobileData.enumerated() {
-                XCTAssertEqual(data.year, String(year + index))
-                XCTAssertEqual(String(format: "%.3f", data.volumeOfMobileData), self.mockYearlyVolumes[index])
-            }
+            XCTAssertEqual(yearlyMobileData.count, 2)
+            XCTAssertEqual(yearlyMobileData[0].year, "1")
+            XCTAssertEqual(yearlyMobileData[0].volumeOfMobileData, 1)
+            XCTAssertEqual(yearlyMobileData[0].hasDecreasedQuarterlyVolumes, true)
+            XCTAssertEqual(yearlyMobileData[1].year, "2")
+            XCTAssertEqual(yearlyMobileData[1].volumeOfMobileData, 2)
+            XCTAssertEqual(yearlyMobileData[1].hasDecreasedQuarterlyVolumes, false)
             fetchMobileDataExpectation.fulfill()
         })
 
-        verify(mobileDataService).fetchMobileData(resourceId: any())
+        verify(mobileDataRepository).fetchMobileData(resourceId: any())
 
         waitForExpectations(timeout: 0.1) { (_) in
             disposable.dispose()
         }
     }
 
-    func testFetchEmptyMobileData() {
+    func testFetchMobileDataFailure() {
         // Given
         let fetchMobileDataExpectation = expectation(description: #function)
-        let emptyResponse = DataStoreSearchResponse(help: "", success: true, result: Result(resourceID: "", fields: [], records: [], links: Links(start: "", next: ""), total: 1))
-
-        Cuckoo.stub(mobileDataService) { (stub) in
-            when(stub.fetchMobileData(resourceId: any())).then { _ in .just(emptyResponse) }
-        }
-
-        // When
-        sut.reloadMobileData()
-
-        // Then
-        let disposable = sut.mobileData.subscribe(onNext: { tabbedMobileData in
-            XCTAssertEqual(tabbedMobileData.count, 0)
-            fetchMobileDataExpectation.fulfill()
-        })
-
-        verify(mobileDataService).fetchMobileData(resourceId: any())
-
-        waitForExpectations(timeout: 0.1) { (_) in
-            disposable.dispose()
-        }
-    }
-
-    func testFetchMobileDataFailed() {
-        // Given
-        let fetchMobileDataExpectation = expectation(description: #function)
-
-        Cuckoo.stub(mobileDataService) { (stub) in
-            when(stub.fetchMobileData(resourceId: any())).then { _ in .error(MobileDataError.apiError(errorData: ErrorData(message: "API Error"))) }
+        Cuckoo.stub(mobileDataRepository) { (stub) in
+            when(stub.fetchMobileData(resourceId: any())).then { _ in .error(MobileDataError.unexpected(message: "error")) }
         }
 
         // When
@@ -88,24 +65,18 @@ class MobileDataViewModelTests: XCTestCase {
 
         // Then
         let disposable = sut.error.subscribe(onNext: { error in
-            if let error = error as? MobileDataError, case .apiError(let errorData) = error {
-                XCTAssertEqual(errorData.message, "API Error")
-                fetchMobileDataExpectation.fulfill()
+            if let error = error, case MobileDataError.unexpected(let message) = error {
+                XCTAssertEqual(message, "error")
+            } else {
+                XCTFail()
             }
+            fetchMobileDataExpectation.fulfill()
         })
 
-        verify(mobileDataService).fetchMobileData(resourceId: any())
+        verify(mobileDataRepository).fetchMobileData(resourceId: any())
 
         waitForExpectations(timeout: 0.1) { (_) in
             disposable.dispose()
-        }
-    }
-
-    private func setupMockMobileData() {
-        response = try? TestHelper.initByCoder(fromResource: "data-store-search")
-
-        Cuckoo.stub(mobileDataService) { (stub) in
-            when(stub.fetchMobileData(resourceId: any())).then { _ in .just(self.response) }
         }
     }
 }

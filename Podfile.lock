@@ -10,6 +10,11 @@ PODS:
     - URITemplate (~> 2.0)
   - Mockingjay/XCTest (2.0.1):
     - Mockingjay/Core
+  - Realm (3.17.3):
+    - Realm/Headers (= 3.17.3)
+  - Realm/Headers (3.17.3)
+  - RealmSwift (3.17.3):
+    - Realm (= 3.17.3)
   - RxAlamofire (4.4.0):
     - RxAlamofire/Core (= 4.4.0)
   - RxAlamofire/Core (4.4.0):
@@ -21,53 +26,58 @@ PODS:
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxCocoa (4.4.2):
     - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxRealm (0.7.6):
+    - RealmSwift (~> 3.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.4.2):
     - RxAtomic (>= 4.4.2, ~> 4.4)
   - RxTest (4.4.2):
     - RxAtomic (>= 4.4.2, ~> 4.4)
     - RxSwift (>= 4.4.2, ~> 4.4)
-  - SDWebImage (5.8.3):
-    - SDWebImage/Core (= 5.8.3)
-  - SDWebImage/Core (5.8.3)
   - URITemplate (2.0.3)
 
 DEPENDENCIES:
   - Cuckoo (= 1.4.1)
   - Mockingjay
+  - RealmSwift (~> 3.17.0)
   - RxAlamofire (~> 4.4.0)
   - RxBlocking (~> 4.4.0)
   - RxCocoa (~> 4.4.0)
+  - RxRealm
   - RxSwift (~> 4.4.0)
   - RxTest (~> 4.4.0)
-  - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Cuckoo
     - Mockingjay
+    - Realm
+    - RealmSwift
     - RxAlamofire
     - RxAtomic
     - RxBlocking
     - RxCocoa
+    - RxRealm
     - RxSwift
     - RxTest
-    - SDWebImage
     - URITemplate
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cuckoo: 4625f7f54d9bb880123270e8969898d6c1d036b5
   Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
+  Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
+  RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
   RxAlamofire: ecc5e458ee11250938d23360179eb3a37cd3ee1e
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
   RxBlocking: e96fdda1473d81332a6ed2cface935dc2167a122
   RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
+  RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   RxTest: 6433d5b6229f5de424fa534bc22b5e6c38b0b671
-  SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
   URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
 
-PODFILE CHECKSUM: 09e1950d45c86015bab585a9ec51cb52e7281746
+PODFILE CHECKSUM: 124e480cb5613e1952bfc06b9639c556ae4bd376
 
 COCOAPODS: 1.8.4
