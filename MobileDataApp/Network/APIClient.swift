@@ -20,7 +20,7 @@ protocol APIClientProtocol: class {
 
 class APIClient {
 
-    private var endpointUrlString: String = "https://data.gov.sg"
+    private var endpointUrlString: String = "https://data.gov.sg/"
 
     private func handleRequest(url: URLConvertible,
                                method: HTTPMethod,

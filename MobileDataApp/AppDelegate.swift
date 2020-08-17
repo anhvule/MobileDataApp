@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MobileDataApp
 //
-//  Created by Le Anh Vu on 16/8/20.
+//  Created by Le Anh Vu on 17/8/20.
 //  Copyright © 2020 Le, AnhVu. All rights reserved.
 //
 
