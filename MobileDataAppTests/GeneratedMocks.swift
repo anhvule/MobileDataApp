@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: MobileDataApp/Features/Display Mobile Data/MobileDataViewModel.swift at 2020-08-16 11:10:56 +0000
+// MARK: - Mocks generated from file: MobileDataApp/Features/Display Mobile Data/MobileDataViewModel.swift at 2020-08-16 14:11:17 +0000
 
 //
 //  MobileDataViewModel.swift
@@ -202,7 +202,177 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: MobileDataApp/Services/MobileDataService.swift at 2020-08-16 11:10:56 +0000
+// MARK: - Mocks generated from file: MobileDataApp/Network/APIClient.swift at 2020-08-16 14:11:17 +0000
+
+//
+//  APIClient.swift
+//  MobileDataApp
+//
+//  Created by Le Anh Vu on 16/8/20.
+//  Copyright © 2020 Le, AnhVu. All rights reserved.
+//
+
+import Cuckoo
+@testable import MobileDataApp
+
+import Alamofire
+import Foundation
+import RxAlamofire
+import RxSwift
+
+
+ class MockAPIClientProtocol: APIClientProtocol, Cuckoo.ProtocolMock {
+    
+     typealias MocksType = APIClientProtocol
+    
+     typealias Stubbing = __StubbingProxy_APIClientProtocol
+     typealias Verification = __VerificationProxy_APIClientProtocol
+
+     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: false)
+
+    
+    private var __defaultImplStub: APIClientProtocol?
+
+     func enableDefaultImplementation(_ stub: APIClientProtocol) {
+        __defaultImplStub = stub
+        cuckoo_manager.enableDefaultStubImplementation()
+    }
+    
+
+    
+
+    
+
+    
+    
+    
+     func requestData(_ method: HTTPMethod, path: String, payload: [String: Any]?, headers: [String : String]?) -> Observable<Data> {
+        
+    return cuckoo_manager.call("requestData(_: HTTPMethod, path: String, payload: [String: Any]?, headers: [String : String]?) -> Observable<Data>",
+            parameters: (method, path, payload, headers),
+            escapingParameters: (method, path, payload, headers),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.requestData(method, path: path, payload: payload, headers: headers))
+        
+    }
+    
+
+	 struct __StubbingProxy_APIClientProtocol: Cuckoo.StubbingProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	
+	     init(manager: Cuckoo.MockManager) {
+	        self.cuckoo_manager = manager
+	    }
+	    
+	    
+	    func requestData<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.OptionalMatchable, M4: Cuckoo.OptionalMatchable>(_ method: M1, path: M2, payload: M3, headers: M4) -> Cuckoo.ProtocolStubFunction<(HTTPMethod, String, [String: Any]?, [String : String]?), Observable<Data>> where M1.MatchedType == HTTPMethod, M2.MatchedType == String, M3.OptionalMatchedType == [String: Any], M4.OptionalMatchedType == [String : String] {
+	        let matchers: [Cuckoo.ParameterMatcher<(HTTPMethod, String, [String: Any]?, [String : String]?)>] = [wrap(matchable: method) { $0.0 }, wrap(matchable: path) { $0.1 }, wrap(matchable: payload) { $0.2 }, wrap(matchable: headers) { $0.3 }]
+	        return .init(stub: cuckoo_manager.createStub(for: MockAPIClientProtocol.self, method: "requestData(_: HTTPMethod, path: String, payload: [String: Any]?, headers: [String : String]?) -> Observable<Data>", parameterMatchers: matchers))
+	    }
+	    
+	}
+
+	 struct __VerificationProxy_APIClientProtocol: Cuckoo.VerificationProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	    private let callMatcher: Cuckoo.CallMatcher
+	    private let sourceLocation: Cuckoo.SourceLocation
+	
+	     init(manager: Cuckoo.MockManager, callMatcher: Cuckoo.CallMatcher, sourceLocation: Cuckoo.SourceLocation) {
+	        self.cuckoo_manager = manager
+	        self.callMatcher = callMatcher
+	        self.sourceLocation = sourceLocation
+	    }
+	
+	    
+	
+	    
+	    @discardableResult
+	    func requestData<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.OptionalMatchable, M4: Cuckoo.OptionalMatchable>(_ method: M1, path: M2, payload: M3, headers: M4) -> Cuckoo.__DoNotUse<(HTTPMethod, String, [String: Any]?, [String : String]?), Observable<Data>> where M1.MatchedType == HTTPMethod, M2.MatchedType == String, M3.OptionalMatchedType == [String: Any], M4.OptionalMatchedType == [String : String] {
+	        let matchers: [Cuckoo.ParameterMatcher<(HTTPMethod, String, [String: Any]?, [String : String]?)>] = [wrap(matchable: method) { $0.0 }, wrap(matchable: path) { $0.1 }, wrap(matchable: payload) { $0.2 }, wrap(matchable: headers) { $0.3 }]
+	        return cuckoo_manager.verify("requestData(_: HTTPMethod, path: String, payload: [String: Any]?, headers: [String : String]?) -> Observable<Data>", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    }
+	    
+	}
+}
+
+ class APIClientProtocolStub: APIClientProtocol {
+    
+
+    
+
+    
+     func requestData(_ method: HTTPMethod, path: String, payload: [String: Any]?, headers: [String : String]?) -> Observable<Data>  {
+        return DefaultValueRegistry.defaultValue(for: (Observable<Data>).self)
+    }
+    
+}
+
+
+
+ class MockAPIClient: APIClient, Cuckoo.ClassMock {
+    
+     typealias MocksType = APIClient
+    
+     typealias Stubbing = __StubbingProxy_APIClient
+     typealias Verification = __VerificationProxy_APIClient
+
+     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: true)
+
+    
+    private var __defaultImplStub: APIClient?
+
+     func enableDefaultImplementation(_ stub: APIClient) {
+        __defaultImplStub = stub
+        cuckoo_manager.enableDefaultStubImplementation()
+    }
+    
+
+    
+
+    
+
+    
+
+	 struct __StubbingProxy_APIClient: Cuckoo.StubbingProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	
+	     init(manager: Cuckoo.MockManager) {
+	        self.cuckoo_manager = manager
+	    }
+	    
+	    
+	}
+
+	 struct __VerificationProxy_APIClient: Cuckoo.VerificationProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	    private let callMatcher: Cuckoo.CallMatcher
+	    private let sourceLocation: Cuckoo.SourceLocation
+	
+	     init(manager: Cuckoo.MockManager, callMatcher: Cuckoo.CallMatcher, sourceLocation: Cuckoo.SourceLocation) {
+	        self.cuckoo_manager = manager
+	        self.callMatcher = callMatcher
+	        self.sourceLocation = sourceLocation
+	    }
+	
+	    
+	
+	    
+	}
+}
+
+ class APIClientStub: APIClient {
+    
+
+    
+
+    
+}
+
+
+// MARK: - Mocks generated from file: MobileDataApp/Services/MobileDataService.swift at 2020-08-16 14:11:17 +0000
 
 //
 //  MobileDataServiceProtocol.swift
