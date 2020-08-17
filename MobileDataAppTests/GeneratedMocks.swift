@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: MobileDataApp/Features/Display Mobile Data/MobileDataViewModel.swift at 2020-08-17 15:42:08 +0000
+// MARK: - Mocks generated from file: MobileDataApp/Features/Display Mobile Data/MobileDataViewModel.swift at 2020-08-17 15:53:12 +0000
 
 //
 //  MobileDataViewModel.swift
@@ -202,7 +202,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: MobileDataApp/Managers/Display Mobile Data/MobileDataLocalDataManager.swift at 2020-08-17 15:42:08 +0000
+// MARK: - Mocks generated from file: MobileDataApp/Managers/Display Mobile Data/MobileDataLocalDataManager.swift at 2020-08-17 15:53:12 +0000
 
 //
 //  MobileDataLocalDataManager.swift
@@ -793,7 +793,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: MobileDataApp/Managers/Display Mobile Data/MobileDataRepository.swift at 2020-08-17 15:42:08 +0000
+// MARK: - Mocks generated from file: MobileDataApp/Managers/Display Mobile Data/MobileDataRepository.swift at 2020-08-17 15:53:12 +0000
 
 //
 //  MobileDataRepository.swift
@@ -1056,7 +1056,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: MobileDataApp/Managers/Display Mobile Data/MobileDataService.swift at 2020-08-17 15:42:08 +0000
+// MARK: - Mocks generated from file: MobileDataApp/Managers/Display Mobile Data/MobileDataService.swift at 2020-08-17 15:53:12 +0000
 
 //
 //  MobileDataServiceProtocol.swift
@@ -1164,7 +1164,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: MobileDataApp/Network/APIClient.swift at 2020-08-17 15:42:08 +0000
+// MARK: - Mocks generated from file: MobileDataApp/Network/APIClient.swift at 2020-08-17 15:53:12 +0000
 
 //
 //  APIClient.swift

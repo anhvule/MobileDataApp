@@ -30,7 +30,7 @@ class APIClientTests: XCTestCase {
 
         // When:
         let result = sut.requestData(.get,
-                                        path: "/api/action/datastore_search",
+                                        path: "api/action/datastore_search",
                                         payload: nil,
                                         headers: nil).toBlocking(timeout: 1).materialize()
 
